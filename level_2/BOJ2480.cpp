@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int A, B, C;
+int main() {
+	cin >> A >> B >> C;
+	if (A == B && B == C)
+		cout << 10000 + A * 1000;
+	else if (A == B)
+		cout << 1000 + A * 100;
+	else if (B == C)
+		cout << 1000 + B * 100;
+	else if (A == C)
+		cout << 1000 + A * 100;
+	else {
+		int max;
+		if (A > B) {
+			if (A > C)
+				max = A;
+			else
+				max = C;
+		}
+		else if (A < B) {
+			if (B > C)
+				max = B;
+			else
+				max = C;
+		}
+		cout << max * 100;
+	}
+	return 0;
+}
