@@ -3,12 +3,14 @@ from collections import Counter
 s = input()
 s = list(s)
 c = Counter(s)
-one = c.get("1")
-zero = c.get("0")
+one = c.get("1", 0)
+zero = c.get("0", 0)
 
 one_total = 0
 zero_total = 0
 for i in range(len(s)):
+    if one == 0:
+        break
     if s[i] == "1":
         s[i] = "-"
         one_total += 1
@@ -17,6 +19,8 @@ for i in range(len(s)):
         break
 
 for i in range(len(s)- 1, -1, -1):
+    if zero == 0:
+        break
     if s[i] == "0":
         s[i] = "-"
         zero_total += 1
